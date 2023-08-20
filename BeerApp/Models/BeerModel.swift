@@ -10,5 +10,8 @@ import Foundation
 struct BeerModel: Codable {
     let id: Int
     let name: String
-    let image_url: String
+    let tagline: String
+    let description: String
+    let image_url: String?
+    let brewers_tips: String
 }

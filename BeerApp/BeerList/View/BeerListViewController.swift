@@ -9,8 +9,11 @@ import UIKit
 import Combine
 
 class BeerListViewController: UIViewController {
+    
+    //MARK: - IBOutlets
 
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var searchBar: UISearchBar!
     
     let viewModel = BeerListViewModel()
     
@@ -36,6 +39,8 @@ class BeerListViewController: UIViewController {
         
         tableView.delegate = self
         tableView.dataSource = self
+        
+        searchBar.delegate = self
     }
     
     private func observeViewModel() {
@@ -47,6 +52,8 @@ class BeerListViewController: UIViewController {
     }
 
 }
+
+//MARK: - Tableview Delegates
 
 extension BeerListViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -65,6 +72,28 @@ extension BeerListViewController: UITableViewDelegate, UITableViewDataSource {
         
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+        let beer = viewModel.beerList[indexPath.row]
+        let nextVC = DetailViewController()
+        nextVC.set(model: beer)
+        navigationController?.pushViewController(nextVC, animated: true)
+    }
+        
+}
+
+extension BeerListViewController: UISearchBarDelegate {
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if searchText != "" {
+            viewModel.getBeers(beerName: searchText)
+        } else {
+            viewModel.getBeers()
+        }
+        
+    }
 }
 

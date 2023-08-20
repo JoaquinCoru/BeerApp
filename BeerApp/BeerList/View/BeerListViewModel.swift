@@ -18,9 +18,9 @@ final class BeerListViewModel: ObservableObject {
         self.networkModel = networkModel
     }
     
-    func getBeers() {
+    func getBeers(beerName: String? = nil) {
         
-        networkModel.getBeers { [weak self] beerList, error in
+        networkModel.getBeers(beerName: beerName) { [weak self] beerList, error in
             
             if let error {
                 print(error.localizedDescription)

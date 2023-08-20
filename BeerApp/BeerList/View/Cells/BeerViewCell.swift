@@ -12,8 +12,11 @@ final class BeerViewCell: UITableViewCell {
     @IBOutlet weak var beerImage: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     
+    @IBOutlet weak var tagLineLabel: UILabel!
+    
     func set(model: BeerModel) {
         self.nameLabel.text = model.name
-        self.beerImage.setImage(url: model.image_url)
+        self.tagLineLabel.text = model.tagline
+        self.beerImage.setImage(urlString: model.image_url)
     }
 }

@@ -10,6 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BeerListViewController" customModule="BeerApp" customModuleProvider="target">
             <connections>
+                <outlet property="searchBar" destination="fd5-OB-FCS" id="jyl-BB-VnO"/>
                 <outlet property="tableView" destination="o3G-Pg-Fgk" id="bfH-53-uvS"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -20,15 +21,25 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="o3G-Pg-Fgk">
-                    <rect key="frame" x="0.0" y="59" width="393" height="759"/>
+                    <rect key="frame" x="0.0" y="115" width="393" height="703"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                 </tableView>
+                <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="fd5-OB-FCS">
+                    <rect key="frame" x="0.0" y="59" width="393" height="56"/>
+                    <textInputTraits key="textInputTraits"/>
+                    <connections>
+                        <outlet property="delegate" destination="-1" id="HNf-pE-8pN"/>
+                    </connections>
+                </searchBar>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="o3G-Pg-Fgk" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="2wC-DO-W4h"/>
                 <constraint firstItem="o3G-Pg-Fgk" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="9hT-1F-rQR"/>
+                <constraint firstItem="fd5-OB-FCS" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="Tuw-l5-Ikz"/>
+                <constraint firstItem="fd5-OB-FCS" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="WJq-O3-vqp"/>
+                <constraint firstItem="o3G-Pg-Fgk" firstAttribute="top" secondItem="fd5-OB-FCS" secondAttribute="bottom" symbolic="YES" id="XtA-C3-DRx"/>
+                <constraint firstItem="fd5-OB-FCS" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="bro-qD-7kk"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="o3G-Pg-Fgk" secondAttribute="bottom" id="gfU-oU-nBr"/>
                 <constraint firstItem="o3G-Pg-Fgk" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="rtC-QK-7In"/>
             </constraints>

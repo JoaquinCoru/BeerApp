@@ -23,17 +23,25 @@
                             <constraint firstAttribute="height" priority="999" constant="100" id="sbM-Cs-eLi"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C1k-ah-HYq">
-                        <rect key="frame" x="111.99999999999999" y="7.9999999999999982" width="44.333333333333329" height="20.333333333333329"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C1k-ah-HYq">
+                        <rect key="frame" x="112.00000000000001" y="7.9999999999999982" width="47.666666666666671" height="20.333333333333329"/>
                         <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tagline" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6TL-yW-t6o">
+                        <rect key="frame" x="112" y="36.333333333333336" width="41" height="15"/>
+                        <fontDescription key="fontDescription" type="italicSystem" pointSize="12"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="C1k-ah-HYq" secondAttribute="trailing" constant="4" id="IBz-vd-3s1"/>
+                    <constraint firstItem="6TL-yW-t6o" firstAttribute="leading" secondItem="C1k-ah-HYq" secondAttribute="leading" id="Tsa-EX-yE3"/>
                     <constraint firstItem="OyF-ld-0BZ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="4" id="Wx9-Hx-Ufx"/>
                     <constraint firstItem="OyF-ld-0BZ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="4" id="ew2-dv-4us"/>
+                    <constraint firstItem="6TL-yW-t6o" firstAttribute="top" secondItem="C1k-ah-HYq" secondAttribute="bottom" constant="8" id="jsP-Sh-7rX"/>
                     <constraint firstAttribute="bottom" secondItem="OyF-ld-0BZ" secondAttribute="bottom" constant="4" id="rdn-9e-FmD"/>
                     <constraint firstItem="C1k-ah-HYq" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="ryN-QY-UzF"/>
                     <constraint firstItem="C1k-ah-HYq" firstAttribute="leading" secondItem="OyF-ld-0BZ" secondAttribute="trailing" constant="8" symbolic="YES" id="ty6-De-vaa"/>
@@ -43,6 +51,7 @@
             <connections>
                 <outlet property="beerImage" destination="OyF-ld-0BZ" id="Bo5-jS-VIk"/>
                 <outlet property="nameLabel" destination="C1k-ah-HYq" id="hR1-v0-MXo"/>
+                <outlet property="tagLineLabel" destination="6TL-yW-t6o" id="StX-r4-mTI"/>
             </connections>
             <point key="canvasLocation" x="168.70229007633588" y="14.084507042253522"/>
         </tableViewCell>

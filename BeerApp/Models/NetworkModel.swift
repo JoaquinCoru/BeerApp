@@ -9,11 +9,9 @@ import Foundation
 
 enum NetworkError: Error, Equatable {
     case malformedURL
-    case dataFormatting
     case other
     case noData
     case errorCode(Int?)
-    case tokenFormatError
     case decoding
 }
 
@@ -31,9 +29,17 @@ final class NetworkModel {
         self.session = session
     }
     
-    func getBeers(completion: @escaping ([BeerModel], NetworkError?) -> Void) {
+    func getBeers(beerName: String? = nil,completion: @escaping ([BeerModel], NetworkError?) -> Void) {
         
-        performNetworkRequest("https://api.punkapi.com/v2/beers", httpMethod: .get) { (result: Result<[BeerModel],NetworkError>) in
+        let parameters: [String: String]?
+        
+        if let beerName {
+            parameters = ["beer_name": beerName]
+        } else {
+            parameters = nil
+        }
+        
+        performNetworkRequest("https://api.punkapi.com/v2/beers", httpMethod: .get, parameters: parameters) { (result: Result<[BeerModel],NetworkError>) in
             
             switch result {
             case .success(let success):
@@ -46,12 +52,24 @@ final class NetworkModel {
 }
 private extension NetworkModel{
     
-    func performNetworkRequest<R: Codable>(_ urlString: String, httpMethod: HTTPMethod, completion: @escaping (Result<R, NetworkError>) -> Void) {
+    func performNetworkRequest<R: Codable>(_ urlString: String, httpMethod: HTTPMethod, parameters: [String: String]? = nil, completion: @escaping (Result<R, NetworkError>) -> Void) {
         
-        guard let url = URL(string: urlString) else {
+        guard var urlComponents = URLComponents(string: urlString) else {
             completion(.failure(.malformedURL))
             return
         }
+        
+        if let parameters {
+            urlComponents.queryItems = parameters.map({ (key, value) in
+                URLQueryItem(name: key, value: value)
+            })
+        }
+        
+        guard let url = urlComponents.url else {
+            completion(.failure(.malformedURL))
+            return
+        }
+        
         
         var urlRequest = URLRequest(url: url)
         urlRequest.httpMethod = httpMethod.rawValue
@@ -68,6 +86,12 @@ private extension NetworkModel{
             }
             
             guard let response = try? JSONDecoder().decode(R.self, from: data) else {
+                do{
+                    print( try JSONSerialization.jsonObject(with: data))
+                }catch{
+                    print("error \(error.localizedDescription)")
+                }
+                
                 completion(.failure(.decoding))
                 return
             }

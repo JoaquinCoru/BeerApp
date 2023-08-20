@@ -22,6 +22,8 @@
 		D244FF4F2A8ED36A00199360 /* BeerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D244FF4E2A8ED36A00199360 /* BeerModel.swift */; };
 		D244FF512A8ED51000199360 /* NetworkModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D244FF502A8ED51000199360 /* NetworkModel.swift */; };
 		D244FF542A8EE63200199360 /* UIImageViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D244FF532A8EE63200199360 /* UIImageViewExtension.swift */; };
+		D25164372A917EE600AD860F /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D25164352A917EE600AD860F /* DetailViewController.swift */; };
+		D25164382A917EE600AD860F /* DetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D25164362A917EE600AD860F /* DetailViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +63,8 @@
 		D244FF4E2A8ED36A00199360 /* BeerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeerModel.swift; sourceTree = "<group>"; };
 		D244FF502A8ED51000199360 /* NetworkModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkModel.swift; sourceTree = "<group>"; };
 		D244FF532A8EE63200199360 /* UIImageViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageViewExtension.swift; sourceTree = "<group>"; };
+		D25164352A917EE600AD860F /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		D25164362A917EE600AD860F /* DetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +119,7 @@
 				D244FF122A8ECA0D00199360 /* SceneDelegate.swift */,
 				D244FF4D2A8ED30E00199360 /* Models */,
 				D244FF402A8ECA6100199360 /* BeerList */,
+				D25164342A917EB400AD860F /* Detail */,
 				D244FF522A8EE61000199360 /* Extensions */,
 				D244FF192A8ECA0E00199360 /* Assets.xcassets */,
 				D244FF1B2A8ECA0E00199360 /* LaunchScreen.storyboard */,
@@ -183,6 +188,23 @@
 				D244FF532A8EE63200199360 /* UIImageViewExtension.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		D25164342A917EB400AD860F /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				D25164392A91810800AD860F /* View */,
+			);
+			path = Detail;
+			sourceTree = "<group>";
+		};
+		D25164392A91810800AD860F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D25164352A917EE600AD860F /* DetailViewController.swift */,
+				D25164362A917EE600AD860F /* DetailViewController.xib */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -291,6 +313,7 @@
 			files = (
 				D244FF442A8ECB4300199360 /* BeerListViewController.xib in Resources */,
 				D244FF1D2A8ECA0E00199360 /* LaunchScreen.storyboard in Resources */,
+				D25164382A917EE600AD860F /* DetailViewController.xib in Resources */,
 				D244FF1A2A8ECA0E00199360 /* Assets.xcassets in Resources */,
 				D244FF4A2A8ECDAB00199360 /* BeerViewCell.xib in Resources */,
 			);
@@ -317,6 +340,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D25164372A917EE600AD860F /* DetailViewController.swift in Sources */,
 				D244FF492A8ECDAB00199360 /* BeerViewCell.swift in Sources */,
 				D244FF432A8ECB4300199360 /* BeerListViewController.swift in Sources */,
 				D244FF112A8ECA0D00199360 /* AppDelegate.swift in Sources */,
